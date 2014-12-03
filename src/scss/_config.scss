@@ -1,0 +1,73 @@
+/**
+ * Media Queries - *Try* and make everything fit within these
+ */
+$mobile-context: "only screen and (max-width: 960px)";
+$mobile-strict-context: "only screen and (max-width: 767px)";
+$tablet-context: "only screen and (min-width: 768px)";
+$tablet-strict-context: "only screen and (min-width: 768px) and (orientation: portrait)";
+$desktop-context: "only screen and (min-width: 960px) and (orientation: landscape)";
+$large-desktop-context: "only screen and (min-width: 1120px) and (orientation: landscape)";
+
+
+/**
+ * Font definitions
+ */
+$defaultFontSize: 1;
+
+$sans-serif: sans-serif;
+$serif: serif;
+
+$body-font: sans-serif;
+$heading-font: $serif;
+
+
+/**
+ * Transitions
+ */
+$base-anim-rythm: 300ms;
+$transition-default: all $base-anim-rythm ease-in-out;
+
+
+/**
+ * Padding
+ * Usage: padding: $padding-rythm*2
+ */
+$padding-rythm: 1.25rem;
+
+
+/**
+ * Raw Colors - Try not to use these within actual styles!
+ *
+ * Generate color names here: http://jonnyscholes.com/experiments/rgbto
+ */
+$blackrussian: #131213;
+$cod-gray: #1b1b1b;
+$mineshaft: #222222;
+$shark: #2d2d2f;
+$tundora: #424242;
+$dove: #6a6a6a;
+$silver: #a0a0a0;
+$desertstorm: #EEEDEB;
+
+
+/**
+ * Purpose-based colors
+ */
+$color-text: $blackrussian;
+
+
+/**
+ * z-index stack
+ */
+$zi-layer-1: 20;
+$zi-layer-2: 40;
+$zi-layer-3: 60;
+$zi-layer-4: 80;
+$zi-layer-nav: 200;
+
+
+/**
+ * Misc
+ */
+$defaultFontSize: 1;
+$transition-default: all 300ms ease-in-out;
