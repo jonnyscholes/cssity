@@ -45,7 +45,8 @@
 	},
 	"dependencies": {
 		"jquery": "~1.11.1",
-		"css-specificity": "~0.1.0"
+		"css-specificity": "~0.1.0",
+		"css-selector-parser": "*"
 	},
 	"scripts": {
 		"start": "gulp"
