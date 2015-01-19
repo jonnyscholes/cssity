@@ -8,24 +8,43 @@
 	box-sizing: border-box;
 }
 
-$c1: #FF4F2F;
-$c2: #FF6824;
-$c3: #FF8D23;
-$c4: #FFBD4A;
-$c5: #E8C44C;
-$c6: #FFF166;
-$c7: #FFFF9f;
+//$c1: #e006c8;
+//$c2: #e4059c;
+//$c3: #e9046e;
+//$c4: #ed033e;
+//$c5: #f2030b;
+//$c6: #f62e02;
+//$c7: #fb6301;
 
-$darken-amount: 40%;
+
+//$c1: #48a342;
+//$c2: #43a652;
+//$c3: #43aa69;
+//$c4: #43ad81;
+//$c5: #aa8f4d;
+//$c6: #c58f4d;
+//$c7: #c7b84f;
+
+$c1: #333;
+$c2: #444;
+$c3: #555;
+$c4: #666;
+$c5: #777;
+$c6: #888;
+$c7: #999;
+
+$heading-color: #222;
+
+$darken-amount: 25%;
 
 html,
 body {
 	text-align: center;
-	color: lighten($c6, 20%);
+	color: #111;
 	height: 100%;
 	padding: 0;
 	margin: 0;
-	background-color: darken($c2, 30%);
+	background-color: #efefef;
 	background-size:60px 60px;
 	background-position:0 0, 30px 30px;
 	font-family: 'Source Code Pro', serif;
@@ -33,38 +52,39 @@ body {
 
 
 
-.wrapper {
-	max-width: 800px;
+.wrapper {background-color: white;
+	max-width: 940px;
 	margin: 0 auto;
+	overflow: hidden;
 }
 
 
 .theme-id {
-	color: $c1;
+	color: lighten($c1, 50%);
 	background: darken($c1, $darken-amount);
 }
 .theme-class {
-	color: $c2;
+	color: lighten($c2, 45%);
 	background: darken($c2, $darken-amount);
 }
 .theme-attribute {
-	color: $c3;
+	color: lighten($c3, 40%);
 	background: darken($c3, $darken-amount);
 }
 .theme-pseudoclass {
-	color: $c4;
+	color: lighten($c4, 35%);
 	background: darken($c4, $darken-amount);
 }
 .theme-tag {
-	color: $c5;
+	color: lighten($c5, 30%);
 	background: darken($c5, $darken-amount);
 }
 .theme-pseudoelement {
-	color: $c6;
+	color: lighten($c6, 25%);
 	background: darken($c6, $darken-amount);
 }
 .theme-universal {
-	color: $c7;
+	color: lighten($c7, 20%);
 	background: darken($c7, $darken-amount);
 }
 
@@ -72,26 +92,32 @@ body {
 .site-title {
 	text-align: center;
 	font-size: 2.4rem;
-	color: lighten($c6, 10%);
+	color: $heading-color;
 	margin-top: 20px;
 	margin-bottom: 40px;
 }
 
 .title {
 	font-size: 1.6rem;
-	color: lighten($c6, 20%);
+	color: $heading-color;
 	margin-bottom: 1em;
 }
 
 .calculator {
 	margin-bottom: 40px;
 	&--input {
-		padding: 10px 20px;
-		color: $c7;
-		background: darken($c7, $darken-amount);
-		border: 0 none;
+		transition: background 300ms ease-in-out;
+		padding: 18px 25px;
+		color: $heading-color;
+		background: #efefef;
+		border: 1px solid $heading-color;
 		min-width: 320px;
 		text-align: center;
+		border-radius: 3px;
+		&:active,
+		&:focus {
+			background: white;
+		}
 	}
 }
 
@@ -103,46 +129,62 @@ body {
 .example {
 	padding: 5px;
 	&--elm {
+		text-align: left;
+		display: block;
 		padding: 5px 20px;
 		position: relative;
 		border-bottom: 2px solid;
-		&:before {
-			height: 20px;
-			width: 0;
-			content: '';
-			position: absolute;
-			border-right: 2px solid;
-			left: 50%;
-			top: 100%;
-			margin-left: -1px;
-		}
-
-
-		+ .theme-attribute,
-		+ .theme-pseudoclass,
-		+ .theme-pseudoelement {
-			padding-left: 0;
-			margin-left: -19px;
-		}
 
 		&.to-right {
-			padding-right: 0;
-			+ .example--elm {
-				padding-left: 0;
-			}
 		}
 	}
 
 	&--elm-meta {
-		position: absolute;
-		left: 50%;
-		top: 100%;
-		margin-top: 20px;
-		transform: translateX(-50%);
+		float: right;
 	}
+}
 
-	.theme-pseudoclass {
-		padding-left: 0;
+@include respond-to("only screen and (min-width: 768px)") {
+	.example {
+		&--elm {
+			text-align: center;
+			display: inline;
+
+			&:before {
+				height: 20px;
+				width: 0;
+				content: '';
+				position: absolute;
+				border-right: 2px solid;
+				left: 50%;
+				top: 100%;
+				margin-left: -1px;
+			}
+			+ .theme-attribute,
+			+ .theme-pseudoclass,
+			+ .theme-pseudoelement {
+				padding-left: 0;
+				margin-left: -19px;
+			}
+
+			&.to-right {
+				padding-right: 0;
+				+ .example--elm {
+					padding-left: 0;
+				}
+			}
+		}
+		&--elm-meta {
+			color: $heading-color;
+			position: absolute;
+			left: 50%;
+			top: 100%;
+			margin-top: 20px;
+			transform: translateX(-50%);
+		}
+		.theme-pseudoclass {
+			padding-left: 0;
+		}
 	}
 }
 
@@ -153,30 +195,18 @@ body {
 	padding-bottom: 53px;
 	margin-bottom: 1em;
 	&--title {
-		color: lighten($c6, 20%);
+		color: $heading-color;
 		margin-bottom: 1em;
 	}
 }
 
 
 .legend {
+	max-width: 660px;
 	overflow: hidden;
-	margin: 2em 0;
 	&--item {
 		text-align: center;
 		padding: 10px;
-		width: (100% / 3);
-		float: left;
-
-		&.theme-id,
-		&.theme-universal {
-			width: 100%;
-		}
-
-		&.theme-tag,
-		&.theme-pseudoelement {
-			width: 50%;
-		}
 	}
 		&--example {
 			font-size: .8rem;
@@ -184,6 +214,25 @@ body {
 		&--value {
 			font-size: 2rem;
 		}
+}
+
+@include respond-to("only screen and (min-width: 768px)") {
+	.legend {
+		margin: 2em auto;
+		&--item {
+			width: (100% / 3);
+			float: left;
+			&.theme-id,
+			&.theme-universal {
+				width: 100%;
+			}
+
+			&.theme-tag,
+			&.theme-pseudoelement {
+				width: 50%;
+			}
+		}
+	}
 }
 
 .explanation {
@@ -194,15 +243,22 @@ body {
 
 .equasion {
 	text-align: center;
-	margin-bottom: 2em;
 	position: relative;
-	padding-bottom: 38px;
 	&--result {
-		color: lighten($c6, 10%);
+		color: $heading-color;
 		padding: 3px 20px;
 		display: inline-block;
-		transform: translateY(50%);
 		font-size: 1.5rem;
-		position: absolute;
+	}
+}
+
+@include respond-to("only screen and (min-width: 768px)") {
+	.equasion {
+		padding: 40px 40px 60px 40px;
+		margin-bottom: 2em;
+		&--result {
+			transform: translateY(50%);
+			position: absolute;
+		}
 	}
 }
